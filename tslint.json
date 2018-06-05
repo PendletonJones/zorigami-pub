@@ -1,0 +1,36 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts"
+    ]
+  },
+  "defaultSeverity": "warning",
+  "rules": {
+  	"no-console": {
+  	    "severity": "off",
+  	    "options": [
+  	        "debug",
+  	        "info",
+  	        "log",
+  	        "time",
+  	        "timeEnd",
+  	        "trace"
+  	    ]
+  	},
+    "max-line-length": {
+        "options": [800]
+    },
+    "new-parens": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": true,
+    "variable-name": false,
+    "ordered-imports": false,
+    "array-type": [true, "generic"],
+    "object-literal-sort-keys": false,
+    "jsx-no-lambda": false
+  }
+}
