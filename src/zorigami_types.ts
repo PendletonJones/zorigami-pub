@@ -1,4 +1,3 @@
-import { Map } from 'immutable';
 import { INDIVIDUAL_WORKER, TRANSPARENT_POOL } from 'worker_constants';
 
 export interface IConstructable<T> {
@@ -15,6 +14,13 @@ export interface ICustomWorkerPort {
 export interface IMessage {
     from?:string
 }
+export interface ApiConfiguration {
+    readonly [dispatch_name: string]: DispatchHandler
+}
+export interface Dictionary<T> {
+    [key: string]: T
+}
+
 export type IHasToJSON = any;
 export type ResponseCallback = (message: any, err?: any) => void;
 export type UUID = string;
@@ -23,7 +29,6 @@ export type Transferable = ArrayBuffer | MessagePort | ImageBitmap;
 export type PromisedPostMessage = (message: any, transferables?: Array<Transferable>) => Promise<MessageEvent>;
 export type ResponseFunction = (message: any) => void;
 export type DispatchHandler = (event: MessageEvent, respond: ResponseFunction) => void;
-export type ApiConfiguration = Map<string, DispatchHandler>;
 export type WorkerConstructor = IConstructable<Worker>;
 export type WorkerList = Array<{
     WorkerConstructor: WorkerConstructor,

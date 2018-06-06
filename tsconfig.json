@@ -19,8 +19,8 @@
     "noUnusedLocals": false,
     "baseUrl": ".",
     "paths": {
-      "immutable": ["../node_modules/immutable"],
-      "socket.io-client": ["../node_modules/socket.io-client"],
+      "immutable": ["immutable"],
+      "socket.io-client": ["socket.io-client"],
       "*": [
         "src/*"
       ],

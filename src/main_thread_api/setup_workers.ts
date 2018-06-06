@@ -1,4 +1,3 @@
-import { Map }                                        from 'immutable';
 import { construct_worker_to_worker_message_channel } from 'main_thread_api/setup_tasks/construct_worker_to_worker_message_channel';
 import { tell_workers_to_exchange_api }               from 'main_thread_api/setup_tasks/tell_workers_to_exchange_api';
 import worker_instance_provider                       from 'main_thread_api/provide_worker_instance';
@@ -22,7 +21,7 @@ import {
     IWorkerSet,
 } from 'zorigami_types';
 
-const main_thread_api_config: ApiConfiguration = Map({
+const main_thread_api_config: ApiConfiguration = {
     [REDIRECT_URL]: (event: MessageEvent, respond: ResponseFunction) => {
         respond(ACK);
     },
@@ -32,7 +31,7 @@ const main_thread_api_config: ApiConfiguration = Map({
     [DESTROY_WORKER]: (event: MessageEvent, respond: ResponseFunction) => {
         respond(ACK);
     }
-});
+};
 
 function test_workers(workers: Array<IWorkerSet>) {
     workers.forEach(async (worker) => {

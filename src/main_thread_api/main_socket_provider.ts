@@ -1,5 +1,5 @@
-import { Map } from 'immutable';
-import { IHasToJSON } from 'zorigami_types';
+
+import { IHasToJSON, Dictionary } from 'zorigami_types';
 import uuid from 'utility/uuid';
 import socket from 'shared/provide_socket';
 import name_provider from 'shared/provide_name';
@@ -9,7 +9,7 @@ export default class MainSocketProvider {
     constructor(){
         this.socket = socket;
     }
-    public createStateMonitor(stateconfig: () => Map<string, any>){
+    public createStateMonitor(stateconfig: () => Dictionary<any>){
         return (wrapped_function: (...wrapped_args: Array<any>) => any) => {
             return (...wrapped_args: Array<any>) => {
                 const ret_value: any = wrapped_function(...wrapped_args);
@@ -67,9 +67,9 @@ export default class MainSocketProvider {
         });
     }
 
-    private updateMainState = (stateconfig: () => Map<string, any>) => {
+    private updateMainState = (stateconfig: () => Dictionary<any>) => {
         setTimeout(() => {
-            const callback_guid = uuid();                
+            const callback_guid = uuid();
             this.socket.emit('updateMainState', {
                 callback_guid,
                 main_data: stateconfig().toJS(),
