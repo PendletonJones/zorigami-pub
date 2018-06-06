@@ -2,23 +2,12 @@ import { RESPONSE_MESSAGE, EXPOSE_WORKER_API } from '../worker_constants';
 import provide_worker_instance from '../main_thread_api/provide_worker_instance';
 import provide_response_callbacks from '../shared/provide_response_callbacks';
 import { ResponseFunction, DispatchHandler, ApiConfiguration } from '../zorigami_types';
-/* need to import ResponseMessage type */
 
-
-/*
-    what to do here
-    - type default_handler so that it is of the handler type
-    - make a dictionary type with an indexable interface and readonly properties
-    so that we can avoid using immutable.
-    -
-*/
-
-
-const default_handler: DispatchHandler = (event: MessageEvent, respond: ResponseFunction) => {
+export const default_handler: DispatchHandler = (event: MessageEvent, respond: ResponseFunction) => {
     throw new Error(JSON.stringify(event));
 };
 
-const default_main_sub_to_worker_api: ApiConfiguration = {
+export const default_main_sub_to_worker_api: ApiConfiguration = {
     [RESPONSE_MESSAGE]: (event: MessageEvent) => {
         provide_response_callbacks.getResponseCallback(event.data.callback_guid)(event);
         provide_response_callbacks.removeResponseCallback(event.data.callback_guid);
