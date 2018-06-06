@@ -17,6 +17,7 @@
   "scripts": {
     "clear": "rm -rf ./dist/*",
     "compile": "yarn run clear && tsc",
+    "test": "jest --coverage --watch",
     "bump": "npm version patch"
   },
   "dependencies": {
@@ -24,11 +25,26 @@
     "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^23.0.0",
     "enhanced-resolve": "^4.0.0",
+    "jest": "^23.1.0",
     "npm": "^6.1.0",
+    "ts-jest": "^22.4.6",
     "tslint": "^5.10.0",
     "tslint-react": "^3.6.0",
     "tspath": "^1.2.10",
     "typescript": "^2.8.3"
+  },
+  "jest": {
+    "roots": ["<rootDir>/src"],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$"
   }
 }

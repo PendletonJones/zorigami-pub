@@ -52,13 +52,16 @@ export class WorkerSiblingPortProvider {
 	public storePortInterface = (sibling_worker_name: string, port: MessagePort): undefined => {
 		port.onmessage = dispatch_message;
 		const sibling_worker_interface = create_worker_interface(sibling_worker_name, port);
+		console.log(this.sibling_worker_interfaces);
 		this.sibling_worker_interfaces[sibling_worker_name] = sibling_worker_interface;
+		console.log(this.sibling_worker_interfaces);
 	    console.warn('this.sibling_worker_interfaces', this.sibling_worker_interfaces);
 		socket.workerUpdateSocketPortInterfaces(this.sibling_worker_interfaces);
 	    return;
 	};
 
 	public getPortInterface = (sibling_worker_name: string): Maybe<ICustomWorkerPort> => {
+		console.warn(this.sibling_worker_ports);
 		return this.sibling_worker_interfaces[sibling_worker_name];
 	}
 

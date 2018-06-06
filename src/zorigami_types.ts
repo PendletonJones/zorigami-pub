@@ -36,6 +36,7 @@ export type WorkerList = Array<{
     type: INDIVIDUAL_WORKER | TRANSPARENT_POOL,
 }>
 
+/* guards */
 export function isMessagePort(potential_port: Maybe<MessagePort>): potential_port is MessagePort {
     return potential_port !== undefined;
 }
