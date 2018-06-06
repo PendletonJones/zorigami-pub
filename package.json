@@ -17,7 +17,8 @@
   "scripts": {
     "clear": "rm -rf ./dist/*",
     "compile": "yarn run clear && tsc",
-    "sendoff": "yarn run compile && npm publish"
+    "bump": "npm version patch",
+    "publish": "npm publish"
   },
   "dependencies": {
     "@types/socket.io-client": "^1.4.32",

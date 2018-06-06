@@ -72,7 +72,7 @@ export default class MainSocketProvider {
             const callback_guid = uuid();
             this.socket.emit('updateMainState', {
                 callback_guid,
-                main_data: stateconfig().toJS(),
+                main_data: stateconfig(),
                 from_name: name_provider.getWorkerName(),
             });
         });
