@@ -1,23 +1,36 @@
 {
   "name": "zorigami",
-  "version": "1.0.0",
+  "keywords": [
+    "webworker",
+    "parallel",
+    "multiprocessing",
+    "orchestration"
+  ],
+  "version": "1.0.5",
   "description": "a package for managing web workers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
   "author": "Pendleton Jones",
-  "license": "no license",
-  "private": true,
+  "license": "MIT",
+  "private": false,
+  "repository": "https://github.com/PendletonJones/zorigami-pub",
   "scripts": {
     "clear": "rm -rf ./dist/*",
-    "compile": "yarn run clear && ttsc"
+    "compile": "yarn run clear && ttsc",
+    "sendoff": "yarn run compile && yarn publish"
   },
   "dependencies": {
     "@types/socket.io-client": "^1.4.32",
+    "immutable": "^3.8.2",
+    "socket.io-client": "^2.1.1"
+  },
+  "devDependencies": {
     "@zerollup/ts-transform-paths": "^1.2.2",
     "enhanced-resolve": "^4.0.0",
-    "immutable": "^3.8.2",
     "npm": "^6.1.0",
-    "socket.io-client": "^2.1.1",
     "ts-loader": "^4.3.0",
     "tsconfig-paths-webpack-plugin": "^3.1.3",
     "tslint": "^5.10.0",
@@ -25,9 +38,7 @@
     "tspath": "^1.2.10",
     "ttypescript": "^1.4.2",
     "typescript": "^2.8.3",
-    "webpack": "^4.8.3"
-  },
-  "devDependencies": {
+    "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4"
   }
 }
