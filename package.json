@@ -6,7 +6,7 @@
     "multiprocessing",
     "orchestration"
   ],
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "a package for managing web workers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,7 +17,7 @@
   "scripts": {
     "clear": "rm -rf ./dist/*",
     "compile": "yarn run clear && ttsc",
-    "sendoff": "yarn run compile && yarn publish"
+    "sendoff": "yarn run compile && npm publish"
   },
   "dependencies": {
     "@types/socket.io-client": "^1.4.32",
