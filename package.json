@@ -6,6 +6,9 @@
     "multiprocessing",
     "orchestration"
   ],
+  "files": [
+    "dist"
+  ],
   "version": "1.0.7",
   "description": "a package for managing web workers",
   "main": "./dist/index.js",
