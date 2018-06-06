@@ -1,4 +1,4 @@
-import { ApiConfiguration } from 'zorigami_types';
+import { ApiConfiguration } from '../zorigami_types';
 
 export class ApiConfigProvider {
 	private api_config: ApiConfiguration;

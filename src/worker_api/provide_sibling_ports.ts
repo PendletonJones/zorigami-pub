@@ -1,16 +1,17 @@
-import dispatch_message        from 'worker_api/dispatch_message';
-import create_worker_interface from 'worker_api/create_worker_interface_worker';
-import worker_name_provider    from 'shared/provide_name';
-import WorkerSocketProvider    from 'worker_api/worker_socket_provider';
-import sibling_worker_port_provider from 'worker_api/provide_sibling_ports';
-import { Dictionary } from '../zorigami_types';
+import dispatch_message        from '../worker_api/dispatch_message';
+import create_worker_interface from '../worker_api/create_worker_interface_worker';
+import worker_name_provider    from '../shared/provide_name';
+import WorkerSocketProvider    from '../worker_api/worker_socket_provider';
+import sibling_worker_port_provider from '../worker_api/provide_sibling_ports';
 import {
 	ICustomWorkerPort,
 	Maybe,
 	PromisedPostMessage,
 	Transferable,
 	isCustomPort,
-}  from 'zorigami_types';
+	Dictionary
+}  from '../zorigami_types';
+
 const socket = new WorkerSocketProvider()
 
 export class WorkerSiblingPortProvider {

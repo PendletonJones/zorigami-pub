@@ -1,8 +1,8 @@
 
-import { IHasToJSON, Dictionary } from 'zorigami_types';
-import uuid from 'utility/uuid';
-import socket from 'shared/provide_socket';
-import name_provider from 'shared/provide_name';
+import { IHasToJSON, Dictionary } from '../zorigami_types';
+import uuid from '../utility/uuid';
+import socket from '../shared/provide_socket';
+import name_provider from '../shared/provide_name';
 
 export default class MainSocketProvider {
     private socket: SocketIOClient.Socket;

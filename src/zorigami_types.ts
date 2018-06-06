@@ -1,4 +1,4 @@
-import { INDIVIDUAL_WORKER, TRANSPARENT_POOL } from 'worker_constants';
+import { INDIVIDUAL_WORKER, TRANSPARENT_POOL } from './worker_constants';
 
 export interface IConstructable<T> {
     new() : T;

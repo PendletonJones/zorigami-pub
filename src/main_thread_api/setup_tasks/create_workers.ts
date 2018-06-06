@@ -1,9 +1,9 @@
-import worker_instance_provider from 'main_thread_api/provide_worker_instance';
-import { dispatch_message_from_worker } from 'main_thread_api/dispatch_message_from_worker';
-import { 
+import worker_instance_provider from '../../main_thread_api/provide_worker_instance';
+import { dispatch_message_from_worker } from '../../main_thread_api/dispatch_message_from_worker';
+import {
 	IWorkerSet,
 	WorkerList
-} from 'zorigami_types';
+} from '../../zorigami_types';
 
 export default function create_workers (worker_list: WorkerList): Array<IWorkerSet> {
     const all_workers = worker_list.map(({WorkerConstructor, worker_name}) => {

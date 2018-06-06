@@ -1,13 +1,13 @@
-import { construct_worker_to_worker_message_channel } from 'main_thread_api/setup_tasks/construct_worker_to_worker_message_channel';
-import { tell_workers_to_exchange_api }               from 'main_thread_api/setup_tasks/tell_workers_to_exchange_api';
-import worker_instance_provider                       from 'main_thread_api/provide_worker_instance';
-import name_provider                                  from 'shared/provide_name';
-import api_config_provider                            from 'shared/provide_api_config';
-import { WorkerList }                                 from 'zorigami_types';
-import { ApiConfiguration }                           from 'zorigami_types';
-import { ResponseFunction }                           from 'zorigami_types';
-import create_workers                                 from 'main_thread_api/setup_tasks/create_workers';
-import expose_main_to_workers                         from 'main_thread_api/setup_tasks/expose_main_to_workers';
+import { construct_worker_to_worker_message_channel } from '../main_thread_api/setup_tasks/construct_worker_to_worker_message_channel';
+import { tell_workers_to_exchange_api }               from '../main_thread_api/setup_tasks/tell_workers_to_exchange_api';
+import worker_instance_provider                       from '../main_thread_api/provide_worker_instance';
+import name_provider                                  from '../shared/provide_name';
+import api_config_provider                            from '../shared/provide_api_config';
+import { WorkerList }                                 from '../zorigami_types';
+import { ApiConfiguration }                           from '../zorigami_types';
+import { ResponseFunction }                           from '../zorigami_types';
+import create_workers                                 from '../main_thread_api/setup_tasks/create_workers';
+import expose_main_to_workers                         from '../main_thread_api/setup_tasks/expose_main_to_workers';
 import {
     ACK,
     MAIN_THREAD_NAME,
@@ -16,10 +16,10 @@ import {
     DESTROY_WORKER,
     LIST_CONNECTIONS,
     LOAD_SCRIPT,
-} from 'worker_constants';
+} from '../worker_constants';
 import {
     IWorkerSet,
-} from 'zorigami_types';
+} from '../zorigami_types';
 
 const main_thread_api_config: ApiConfiguration = {
     [REDIRECT_URL]: (event: MessageEvent, respond: ResponseFunction) => {

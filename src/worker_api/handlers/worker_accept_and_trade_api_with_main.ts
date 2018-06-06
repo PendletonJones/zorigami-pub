@@ -1,15 +1,14 @@
-import sibling_port_provider     from 'worker_api/provide_sibling_ports';
-import worker_name_provider      from 'shared/provide_name';
-import api_config_provider       from 'shared/provide_api_config';
-// import dispatch_message          from 'worker_api/dispatch_message';
+import sibling_port_provider     from '../../worker_api/provide_sibling_ports';
+import worker_name_provider      from '../../shared/provide_name';
+import api_config_provider       from '../../shared/provide_api_config';
 import {
     MAIN_THREAD_NAME,
     EXPOSE_WORKER_API,
     LIST_CONNECTIONS,
     TRIGGER_EXPOSE_WORKER_API,
     ACK,
-} from 'worker_constants';
-import { ICustomWorkerPort, isPromisedPostMessage } from 'zorigami_types';
+} from '../../worker_constants';
+import { ICustomWorkerPort, isPromisedPostMessage } from '../../zorigami_types';
 
 const required_default_api_config = [
     EXPOSE_WORKER_API,

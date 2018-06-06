@@ -1,7 +1,7 @@
-import dispatch_message from 'worker_api/dispatch_message';
-import api_config_provider from 'shared/provide_api_config';
-import { ApiConfiguration } from 'zorigami_types';
-import worker_name_provider from 'shared/provide_name';
+import dispatch_message from '../worker_api/dispatch_message';
+import api_config_provider from '../shared/provide_api_config';
+import { ApiConfiguration } from '../zorigami_types';
+import worker_name_provider from '../shared/provide_name';
 
 export default function install_worker(api_configuration: ApiConfiguration, worker_name: string): void {
 	/**

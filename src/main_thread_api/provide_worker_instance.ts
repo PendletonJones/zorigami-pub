@@ -1,6 +1,6 @@
-import create_worker_interface from 'main_thread_api/create_worker_interface_main';
-import worker_name_provider from 'shared/provide_name';
-import MainSocketProvider from 'main_thread_api/main_socket_provider';
+import create_worker_interface from '../main_thread_api/create_worker_interface_main';
+import worker_name_provider from '../shared/provide_name';
+import MainSocketProvider from '../main_thread_api/main_socket_provider';
 import {
 	PromisedPostMessage,
 	Maybe,
@@ -8,7 +8,7 @@ import {
 	Transferable,
 	isCustomPort,
 	Dictionary
-} from 'zorigami_types';
+} from '../zorigami_types';
 
 /* move this to the constructor */
 const socket = new MainSocketProvider();

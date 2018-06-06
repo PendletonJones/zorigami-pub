@@ -1,8 +1,8 @@
-import uuid from 'utility/uuid';
-import { RESPONSE_MESSAGE, TIMEOUT } from 'worker_constants';
-import worker_name_provider from 'shared/provide_name';
-import response_callback_provider from 'shared/provide_response_callbacks';
-import { Transferable, ICustomWorkerPort } from 'zorigami_types';
+import uuid from '../utility/uuid';
+import { RESPONSE_MESSAGE, TIMEOUT } from '../worker_constants';
+import worker_name_provider from '../shared/provide_name';
+import response_callback_provider from '../shared/provide_response_callbacks';
+import { Transferable, ICustomWorkerPort } from '../zorigami_types';
 
 type WorkerOrPort = Worker | MessagePort;
 

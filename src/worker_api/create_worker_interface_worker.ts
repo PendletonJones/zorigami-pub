@@ -1,8 +1,8 @@
-import uuid from 'utility/uuid';
-import response_callback_provider from 'shared/provide_response_callbacks';
-import { Transferable, ICustomWorkerPort } from 'zorigami_types';
-import { RESPONSE_MESSAGE, TIMEOUT } from 'worker_constants';
-import worker_name_provider from 'shared/provide_name';
+import uuid from '../utility/uuid';
+import response_callback_provider from '../shared/provide_response_callbacks';
+import { Transferable, ICustomWorkerPort } from '../zorigami_types';
+import { RESPONSE_MESSAGE, TIMEOUT } from '../worker_constants';
+import worker_name_provider from '../shared/provide_name';
 
 const generate_post_response = (port: MessagePort) => (event: MessageEvent) => (message: any) => port.postMessage({
     ...message,

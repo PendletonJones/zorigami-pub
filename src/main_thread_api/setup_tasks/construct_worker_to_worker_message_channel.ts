@@ -1,7 +1,7 @@
-import uuid from 'utility/uuid';
-import { SETUP_CHANNEL, MAIN_THREAD_NAME } from 'worker_constants';
-import response_callback_provider from 'shared/provide_response_callbacks';
-import { IWorkerSet, ResponseCallback } from 'zorigami_types';
+import uuid from '../../utility/uuid';
+import { SETUP_CHANNEL, MAIN_THREAD_NAME } from '../../worker_constants';
+import response_callback_provider from '../../shared/provide_response_callbacks';
+import { IWorkerSet, ResponseCallback } from '../../zorigami_types';
 
 const setup_channel = async (source_worker: IWorkerSet, target_worker: IWorkerSet, port: MessagePort) => {
     const target_worker_name = target_worker.worker_name;

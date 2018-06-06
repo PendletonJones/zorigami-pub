@@ -1,4 +1,4 @@
-export { 
+export {
 	SETUP_CHANNEL,
 	EXPOSE_WORKER_API,
 	RESPONSE_MESSAGE,
@@ -15,7 +15,7 @@ export {
 	DESTROY_WORKER,
 	LOAD_SCRIPT,
 	TIMEOUT,
-} from 'worker_constants';
+} from './worker_constants';
 export {
 	IConstructable,
 	IWorkerSet,
@@ -35,9 +35,9 @@ export {
 	isMessagePort,
 	isCustomPort,
 	isPromisedPostMessage,
-} from 'zorigami_types';
-export { default as install_worker } from 'worker_api/install_worker';
-export { default as setup_workers } from 'main_thread_api/setup_workers';
+} from './zorigami_types';
+export { default as install_worker } from './worker_api/install_worker';
+export { default as setup_workers } from './main_thread_api/setup_workers';
 
 
 

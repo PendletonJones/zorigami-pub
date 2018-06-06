@@ -17,20 +17,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
-    "baseUrl": ".",
-    "paths": {
-      "immutable": ["immutable"],
-      "socket.io-client": ["socket.io-client"],
-      "*": [
-        "src/*"
-      ],
-    },
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin"
-      },
-      { "transform": "@zerollup/ts-transform-paths" }
-    ]
   },
   "exclude": [
     "node_modules",
@@ -39,7 +25,6 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "zorigami",
     "src/setupTests.ts"
   ]
 }

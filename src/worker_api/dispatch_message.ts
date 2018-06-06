@@ -1,14 +1,14 @@
-import sibling_worker_port_provider            from 'worker_api/provide_sibling_ports';
-import name_provider                           from 'shared/provide_name';
-import worker_accept_and_trade_api_with_main   from 'worker_api/handlers/worker_accept_and_trade_api_with_main';
-import worker_expose_worker_api                from 'worker_api/handlers/worker_expose_worker_api';
-import worker_setup_channel                    from 'worker_api/handlers/worker_setup_channel';
-import worker_expose_own_api_to_sibling_worker from 'worker_api/handlers/worker_expose_own_api_to_sibling_worker';
-import worker_response_message                 from 'worker_api/handlers/worker_response_message';
-import worker_reject_message                   from 'worker_api/handlers/worker_reject_message';
-import worker_list_connections                 from 'worker_api/handlers/worker_list_connections';
-import api_config_provider                     from 'shared/provide_api_config';
-import { ApiConfigProvider } from '../shared/provide_api_config';
+import sibling_worker_port_provider            from '../worker_api/provide_sibling_ports';
+import name_provider                           from '../shared/provide_name';
+import worker_accept_and_trade_api_with_main   from '../worker_api/handlers/worker_accept_and_trade_api_with_main';
+import worker_expose_worker_api                from '../worker_api/handlers/worker_expose_worker_api';
+import worker_setup_channel                    from '../worker_api/handlers/worker_setup_channel';
+import worker_expose_own_api_to_sibling_worker from '../worker_api/handlers/worker_expose_own_api_to_sibling_worker';
+import worker_response_message                 from '../worker_api/handlers/worker_response_message';
+import worker_reject_message                   from '../worker_api/handlers/worker_reject_message';
+import worker_list_connections                 from '../worker_api/handlers/worker_list_connections';
+import api_config_provider                     from '../shared/provide_api_config';
+import { ApiConfigProvider }                   from '../shared/provide_api_config';
 import {
     ResponseFunction,
     DispatchHandler,
@@ -16,7 +16,7 @@ import {
     isCustomPort,
     Maybe,
     ApiConfiguration,
-}   from 'zorigami_types';
+}   from '../zorigami_types';
 
 import {
     EXPOSE_WORKER_API,
@@ -27,7 +27,7 @@ import {
     REJECT_MESSAGE,
     LIST_CONNECTIONS,
     LOAD_SCRIPT,
-} from 'worker_constants';
+} from '../worker_constants';
 
 const default_handler: DispatchHandler = (event: MessageEvent, respond: ResponseFunction) => {
     console.warn('default_handler: throwing error', event.data, name_provider.getWorkerName());

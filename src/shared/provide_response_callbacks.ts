@@ -1,4 +1,4 @@
-import { UUID, ResponseCallback, Dictionary } from 'zorigami_types';
+import { UUID, ResponseCallback, Dictionary } from '../zorigami_types';
 // import socket from 'shared/provide_socket';
 
 export class WorkerResponseCallbackStore {
