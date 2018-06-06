@@ -53,7 +53,7 @@ export class WorkerSiblingPortProvider {
 		port.onmessage = dispatch_message;
 		const sibling_worker_interface = create_worker_interface(sibling_worker_name, port);
 		this.sibling_worker_interfaces[sibling_worker_name] = sibling_worker_interface;
-	    console.warn('this.sibling_worker_interfaces.toJS()', this.sibling_worker_interfaces);
+	    console.warn('this.sibling_worker_interfaces', this.sibling_worker_interfaces);
 		socket.workerUpdateSocketPortInterfaces(this.sibling_worker_interfaces);
 	    return;
 	};
