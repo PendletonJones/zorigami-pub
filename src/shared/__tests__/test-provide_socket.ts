@@ -1,3 +1,4 @@
+import socket from '../provide_socket';
 
 describe('suite', () => {
     test('should fail', () => {

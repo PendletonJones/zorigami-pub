@@ -4,8 +4,15 @@ import {
     isPromisedPostMessage
 } from '../zorigami_types';
 
-describe('suite', () => {
-    test('should fail', () => {
-        expect(1 + 1).toEqual(1);
+describe('Type Guards', () => {
+    test('MessagePort', () => {
+        const channel = new MessageChannel();
+        expect(isMessagePort(channel.port1)).toBe(true);
+    });
+    test('CustomPort', () => {
+        expect().
+    });
+    test('PromisedPostMessage', () => {
+        
     });
 });

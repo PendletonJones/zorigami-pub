@@ -1,3 +1,4 @@
+import provider, { WorkerResponseCallbackStore } from '../provide_response_callbacks';
 
 describe('suite', () => {
     test('should fail', () => {

@@ -1,3 +1,4 @@
+import provide_worker_instance from '../provide_worker_instance';
 
 describe('suite', () => {
     test('should fail', () => {

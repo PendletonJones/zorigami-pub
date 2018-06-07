@@ -1,3 +1,4 @@
+import provider, { WorkerNameProvider } from '../provide_name';
 
 describe('suite', () => {
     test('should fail', () => {

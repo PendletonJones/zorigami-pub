@@ -21,7 +21,7 @@ import {
     IWorkerSet,
 } from '../zorigami_types';
 
-const main_thread_api_config: ApiConfiguration = {
+export const main_thread_api_config: ApiConfiguration = {
     [REDIRECT_URL]: (event: MessageEvent, respond: ResponseFunction) => {
         respond(ACK);
     },
@@ -31,20 +31,6 @@ const main_thread_api_config: ApiConfiguration = {
     [DESTROY_WORKER]: (event: MessageEvent, respond: ResponseFunction) => {
         respond(ACK);
     }
-};
-
-function test_workers(workers: Array<IWorkerSet>) {
-    workers.forEach(async (worker) => {
-        console.log(worker.worker_name);
-        const worker_interface = worker_instance_provider.getWorkerInterface(worker.worker_name);
-        if(worker_interface){
-            console.log('worker_interface', worker_interface);
-            const res = await worker_interface.postMessage({
-                type: LIST_CONNECTIONS,
-            }, []);
-            console.log(res, worker.worker_name);
-        };
-    });
 };
 
 export default async function create_worker_network(worker_list: WorkerList){
@@ -71,5 +57,4 @@ export default async function create_worker_network(worker_list: WorkerList){
         already_mapped_workers.push(new_worker_set);
     }
     console.log('already_mapped_workers', already_mapped_workers);
-    test_workers(already_mapped_workers);
 };

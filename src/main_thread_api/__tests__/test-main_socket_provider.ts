@@ -1,3 +1,4 @@
+import main_socket_provider from '../main_socket_provider';
 
 describe('suite', () => {
     test('should fail', () => {

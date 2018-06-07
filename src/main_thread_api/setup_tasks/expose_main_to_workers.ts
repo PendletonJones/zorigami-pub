@@ -10,7 +10,7 @@ import {
 } from '../../worker_constants';
 import { IWorkerSet } from '../../zorigami_types';
 
-const expose_main_api_to_worker = async (
+export const expose_main_api_to_worker = async (
     message: any, 
     worker_name: string, 
     new_worker_instance: Worker,
