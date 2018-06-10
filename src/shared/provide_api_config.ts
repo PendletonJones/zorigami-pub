@@ -10,19 +10,19 @@ export class ApiConfigProvider {
 		this.api_config = {};
 	}
 
-	public storeApiConfig = (api_config: ApiConfiguration) => {
+	public storeApiConfig(api_config: ApiConfiguration){
 	    this.api_config = api_config;
 	};
 
-	public getApiConfig = () => {
+	public getApiConfig(){
 	    return this.api_config;
 	};
 
-	public getDispatchMethod = (dispatch_name: string): Maybe<DispatchHandler> => {
+	public getDispatchMethod(dispatch_name: string): Maybe<DispatchHandler>{
 		return this.api_config[dispatch_name];
 	}
 
-	public listApiConfigMethods = (): Array<string> => {
+	public listApiConfigMethods(): Array<string>{
 		return Object.keys(this.api_config);
 	};
 }

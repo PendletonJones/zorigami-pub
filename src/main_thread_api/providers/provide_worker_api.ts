@@ -17,7 +17,7 @@ export class ProvideWorkerAPI {
         this.worker_apis = {};
     }
 
-    public storeWorkerApi = (worker_name: string, worker_api_config: Array<string>) => {
+    public storeWorkerApi(worker_name: string, worker_api_config: Array<string>){
         const new_worker_api = worker_api_config.reduce((acc: Dictionary<PromisedPostMessage>, action_type: string) => {
             const promised_api_caller = this.makeWorkerApiCall(worker_name, action_type);
             acc[action_type] = promised_api_caller;
@@ -29,11 +29,11 @@ export class ProvideWorkerAPI {
         return;
     }
 
-    public getWorkerApi = (worker_name: string, action_name: string): Maybe<PromisedPostMessage> => {
+    public getWorkerApi(worker_name: string, action_name: string): Maybe<PromisedPostMessage> {
         return this.worker_apis[worker_name][action_name];
     }
 
-    private makeWorkerApiCall = (worker_name: string, action_type: string): PromisedPostMessage => {
+    private makeWorkerApiCall(worker_name: string, action_type: string): PromisedPostMessage {
         const return_func: PromisedPostMessage = (message: any, transferables?: Array<Transferable>) => {
             /* grab the worker port, or the worker itself and post a message to it */
             const worker_port: Maybe<ICustomWorkerPort> = this.getWorkerInterface(worker_name)

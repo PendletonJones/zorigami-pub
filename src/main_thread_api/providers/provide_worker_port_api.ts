@@ -18,7 +18,7 @@ export class WorkerPortAPIPRovider {
 
     }
 
-    public storeWorkerPortAPI = (worker_name: string, worker_api_config: Array<string>) => {
+    public storeWorkerPortAPI(worker_name: string, worker_api_config: Array<string>) {
         /* need to convert to non-immutable javascript */
         const new_worker_port_api = worker_api_config.reduce((acc: Dictionary<PromisedPostMessage>, action_type: string) => {
             const promised_api_caller = this.makePortApiCall(worker_name, action_type);
@@ -29,13 +29,13 @@ export class WorkerPortAPIPRovider {
         return;
     }
 
-    public getWorkerPortAPI = (worker_name: string, action_name: string) => {
+    public getWorkerPortAPI(worker_name: string, action_name: string) {
         /* returns a function that can be used to make an API call */
         // return this.worker_port_apis.getIn([worker_name, action_name]);
         return this.worker_port_apis[worker_name][action_name];
     }
 
-    private makePortApiCall = (worker_name: string, action_type: string): PromisedPostMessage => {
+    private makePortApiCall(worker_name: string, action_type: string): PromisedPostMessage {
         const return_func: PromisedPostMessage = (message: any, transferables?: Array<Transferable>) => {
             /* grab the worker port, or the worker itself and post a message to it */
             const worker_port: Maybe<ICustomWorkerPort> = this.getPortInterface(worker_name)

@@ -8,12 +8,9 @@ export const WARN  = 'worker_constants/logger_worker/WARN';
 export type WARN   = typeof WARN;
 
 export default async function worker_list_connections (event: MessageEvent, respond: ResponseFunction) {
-	console.log(event, respond, 'worker_list_connections');
 	const warn = worker_port_provider.getPortAPI(LOGGER_WORKER, WARN);
 	if(isPromisedPostMessage(warn)){
 		warn({message: 'logging worker_list_connections'});
-	}else{
-		console.warn(warn, worker_port_provider.listPortInterface(), worker_name_provider.getWorkerName());
 	}
     return respond({
 		message: Object.keys(worker_port_provider.listPortInterface()),

@@ -15,7 +15,7 @@ const generate_post_response = (port: WorkerOrPort) => (event: MessageEvent) => 
 
 const context = (self || window);
 
-const createSiblingWorkerInterface = (sibling_worker_name: string, port: WorkerOrPort): ICustomWorkerPort => {
+const createSiblingWorkerInterface = (worker_name: string, port: WorkerOrPort): ICustomWorkerPort => {
 	console.warn(port, typeof port)
 	const sibling_worker_interface: ICustomWorkerPort = {
 	    postMessage: async (message: any, transferables?: Array<Transferable>): Promise<MessageEvent> => {
@@ -24,7 +24,7 @@ const createSiblingWorkerInterface = (sibling_worker_name: string, port: WorkerO
 	        return new Promise<MessageEvent>((resolve, reject) => {
 	            /* cancel after 35 seconds */
 	            const timeout_id: number = context.setTimeout(() => {
-	            	throw new Error(`the operation timed out 'sibling worker name':${sibling_worker_name} 'origin worker name':${worker_name_provider.getWorkerName()} ${callback_guid} ${JSON.stringify(message)}`);
+	            	throw new Error(`the operation timed out 'worker name':${worker_name} 'origin worker name':${worker_name_provider.getWorkerName()} ${callback_guid} ${JSON.stringify(message)}`);
 	            }, TIMEOUT);
 	            const response_callback = (response_message: MessageEvent) => {
 	                /* or clear the timeout and resolve */

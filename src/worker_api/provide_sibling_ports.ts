@@ -35,21 +35,21 @@ export class WorkerSiblingPortProvider {
 		// this.main_api = undefined;
 	}
 
-	public storePort = (sibling_worker_name: string, port: MessagePort): undefined => {
+	public storePort(sibling_worker_name: string, port: MessagePort): undefined {
 		this.sibling_worker_ports[sibling_worker_name] = port;
 		socket.workerUpdateSocketPorts(this.sibling_worker_ports);
 		return;
 	}
 
-	public getPort = (worker_name: string): Maybe<MessagePort> => {
+	public getPort(worker_name: string): Maybe<MessagePort> {
 		return this.sibling_worker_ports[worker_name];
 	};
 
-	public listPorts = (): Dictionary<MessagePort> => {
+	public listPorts(): Dictionary<MessagePort> {
 	    return this.sibling_worker_ports;
 	};
 
-	public storePortInterface = (sibling_worker_name: string, port: MessagePort): undefined => {
+	public storePortInterface(sibling_worker_name: string, port: MessagePort): undefined {
 		port.onmessage = dispatch_message;
 		const sibling_worker_interface = create_worker_interface(sibling_worker_name, port);
 		console.log(this.sibling_worker_interfaces);
@@ -60,16 +60,16 @@ export class WorkerSiblingPortProvider {
 	    return;
 	};
 
-	public getPortInterface = (sibling_worker_name: string): Maybe<ICustomWorkerPort> => {
+	public getPortInterface(sibling_worker_name: string): Maybe<ICustomWorkerPort> {
 		console.warn(this.sibling_worker_ports);
 		return this.sibling_worker_interfaces[sibling_worker_name];
 	}
 
-	public listPortInterface = (): Dictionary<ICustomWorkerPort> => {
+	public listPortInterface(): Dictionary<ICustomWorkerPort> {
 		return this.sibling_worker_interfaces;
 	}
 
-	public storePortAPI = (worker_name: string, worker_api_config: Array<string>) => {
+	public storePortAPI(worker_name: string, worker_api_config: Array<string>) {
 		const new_worker_port_api = worker_api_config.reduce((acc: Dictionary<PromisedPostMessage>, action_type: string) => {
 			const promised_api_caller = this.makePortApiCall(worker_name, action_type);
 			acc[action_type] = promised_api_caller;
@@ -82,17 +82,17 @@ export class WorkerSiblingPortProvider {
 	    return;
 	}
 
-	public getPortAPI = (thread_name: string, action_name: string): Maybe<PromisedPostMessage> => {
+	public getPortAPI(thread_name: string, action_name: string): Maybe<PromisedPostMessage> {
 		const worker_name = worker_name_provider.getWorkerName();
 		console.log('getPortInterface', worker_name, thread_name, action_name);
 		return this.sibling_worker_api[thread_name][action_name];
 	}
 
-	public listPortAPI = (): Dictionary<Dictionary<PromisedPostMessage>> => {
+	public listPortAPI(): Dictionary<Dictionary<PromisedPostMessage>> {
 		return this.sibling_worker_api;
 	}
 
-	private makePortApiCall = (worker_name: string, action_type: string): PromisedPostMessage => {
+	private makePortApiCall(worker_name: string, action_type: string): PromisedPostMessage {
 		const return_func: PromisedPostMessage = (message: any, transferables?: Array<Transferable>) => {
 			/* grab the worker port, or the worker itself and post a message to it */
 			const worker_port: Maybe<ICustomWorkerPort> = this.getPortInterface(worker_name)

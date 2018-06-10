@@ -12,11 +12,11 @@ export class WorkerNameProvider {
 		this.worker_name = 'not set yet';
 	}
 
-	public setWorkerName = (worker_name: string) => {
+	public setWorkerName(worker_name: string){
 	    this.worker_name = worker_name;
 	};
 
-	public getWorkerName = () => {
+	public getWorkerName(){
 	    return this.worker_name;
 	};
 }

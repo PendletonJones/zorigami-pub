@@ -16,15 +16,15 @@ export class WorkerResponseCallbackStore {
 		this.removeResponseCallback = this.removeResponseCallback.bind(this);
 	}
 
-	public setResponseCallback = (callback_guid: UUID, response_callback: ResponseCallback) => {
+	public setResponseCallback(callback_guid: UUID, response_callback: ResponseCallback){
 		this.response_callbacks[callback_guid] = response_callback;
 	};
 
-	public getResponseCallback = (callback_guid: UUID): ResponseCallback => {
+	public getResponseCallback(callback_guid: UUID): ResponseCallback {
 		return this.response_callbacks[callback_guid];
 	}
 
-	public removeResponseCallback = (callback_guid: UUID) => {
+	public removeResponseCallback(callback_guid: UUID){
 		delete this.response_callbacks[callback_guid];
 	}
 	/**

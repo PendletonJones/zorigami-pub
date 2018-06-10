@@ -12,7 +12,6 @@ const generate_post_response = (port: MessagePort) => (event: MessageEvent) => (
 });
 
 export default function create_worker_interface_worker (sibling_worker_name: string, port: MessagePort): ICustomWorkerPort {
-	console.warn('createsiblingworkerinterface', port, typeof port);
 	const sibling_worker_interface: ICustomWorkerPort = {
 	    postMessage: async (message: any, transferables?: Array<Transferable>): Promise<MessageEvent> => {
 	    	/* use this function when initiating requests to other workers */
@@ -32,8 +31,7 @@ export default function create_worker_interface_worker (sibling_worker_name: str
 	            try {
 	                port.postMessage({...message, callback_guid, worker_name}, transferables);
 	            } catch (err) {
-	            	// throw new Error(`Something Went Wrong, ${JSON.stringify({...message, callback_guid, worker_name})}`);
-	            	console.warn(JSON.stringify({...message, callback_guid, worker_name}));
+	            	throw new Error(`Something Went Wrong, ${JSON.stringify({...message, callback_guid, worker_name})}`);
 	            }
 	        });
 	    },

@@ -19,16 +19,16 @@ export class WorkerInstanceProvider {
 		this.worker_instances = {};
 	}
 
-	public storeWorker = (worker_name: string, worker: Worker): undefined => {
+	public storeWorker(worker_name: string, worker: Worker): undefined {
 		this.worker_instances[worker_name] = worker;
 		return;
 	}
 
-	private getWorker = (worker_name: string): Maybe<Worker> => {
+	private getWorker(worker_name: string): Maybe<Worker> {
 		return this.worker_instances[worker_name];
 	}
 
-	public terminateWorker = (worker_name: string) => {
+	public terminateWorker(worker_name: string) {
 		const worker = this.getWorker(worker_name);
 		if (isWorker(worker)) {
 			worker.terminate();

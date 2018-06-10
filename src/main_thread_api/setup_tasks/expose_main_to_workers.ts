@@ -11,14 +11,14 @@ import {
 import { IWorkerSet } from '../../zorigami_types';
 
 export const expose_main_api_to_worker = async (
-    message: any, 
-    worker_name: string, 
+    message: any,
+    worker_name: string,
     new_worker_instance: Worker,
     main_to_worker_channel: MessageChannel
 ) => {
-    /* 
+    /*
         nothing is setup, this is why we construct the callback manually.
-        send the main api to the worker. 
+        send the main api to the worker.
     */
     const callback_guid: string = uuid();
     provide_worker_instance.storeWorkerPort(worker_name, main_to_worker_channel.port1);

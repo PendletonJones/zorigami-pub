@@ -17,19 +17,13 @@ export default async function worker_expose_own_api_to_sibling_worker(
     event: {data: any},
     respond: (message: any) => void
 ){
-    console.warn('worker_expose_own_api_to_sibling_worker');
     const {target_worker_name} = event.data;
     const response_port = worker_port_provider.getPortInterface(target_worker_name);
     if(isCustomPort(response_port)){
-        console.warn('isCustomPort worker_expose_own_api_to_sibling_worker', response_port);
         response_port.postMessage({
             type: EXPOSE_WORKER_API,
             api_config: [...worker_api_provider.listApiConfigMethods(), ...own_api_config],
         });
-    }else{
-        console.log(event, respond);
-        console.warn('worker_port_provider.listPortInterface()', worker_port_provider.listPortInterface());
-        throw new Error('worker port not found');
     }
     /*
         the initial message comes from main, so here we are responding

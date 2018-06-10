@@ -16,13 +16,13 @@ export class WorkerInterfaceProvider {
         this.worker_interfaces = {};
     }
 
-    public storeWorkerInterface = (worker_name: string, worker_instance: Worker): undefined => {
+    public storeWorkerInterface(worker_name: string, worker_instance: Worker): undefined {
         const worker_interface: ICustomWorkerPort = create_worker_interface(worker_name, worker_instance);
         this.worker_interfaces[worker_name] = worker_interface;
         return;
     }
 
-    public getWorkerInterface = (worker_name: string): Maybe<ICustomWorkerPort> => {
+    public getWorkerInterface(worker_name: string): Maybe<ICustomWorkerPort> {
         return this.worker_interfaces[worker_name];
     }
 }
