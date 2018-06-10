@@ -41,7 +41,7 @@ export default async function worker_accept_and_trade_api_with_main_thread (even
     if(isPromisedPostMessage(expose_worker_interface)){
         expose_worker_interface({
             api_config: [
-                ...api_config_provider.listApiConfig(),
+                ...api_config_provider.listApiConfigMethods(),
                 ...required_default_api_config
             ],
         });

@@ -1,4 +1,4 @@
-import { ApiConfiguration } from '../zorigami_types';
+import { ApiConfiguration, DispatchHandler, Maybe } from '../zorigami_types';
 
 export class ApiConfigProvider {
 	private api_config: ApiConfiguration;
@@ -6,7 +6,7 @@ export class ApiConfigProvider {
 	constructor(){
 		this.storeApiConfig = this.storeApiConfig.bind(this);
 		this.getApiConfig = this.getApiConfig.bind(this);
-		this.listApiConfig = this.listApiConfig.bind(this);
+		this.listApiConfigMethods = this.listApiConfigMethods.bind(this);
 		this.api_config = {};
 	}
 
@@ -18,7 +18,11 @@ export class ApiConfigProvider {
 	    return this.api_config;
 	};
 
-	public listApiConfig = (): Array<string> => {
+	public getDispatchMethod = (dispatch_name: string): Maybe<DispatchHandler> => {
+		return this.api_config[dispatch_name];
+	}
+
+	public listApiConfigMethods = (): Array<string> => {
 		return Object.keys(this.api_config);
 	};
 }

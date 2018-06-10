@@ -10,7 +10,7 @@ describe('Type Guards', () => {
         expect(isMessagePort(channel.port1)).toBe(true);
     });
     test('CustomPort', () => {
-        expect().
+        
     });
     test('PromisedPostMessage', () => {
         

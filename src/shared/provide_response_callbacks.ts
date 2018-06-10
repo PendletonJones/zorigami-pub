@@ -1,12 +1,11 @@
 import { UUID, ResponseCallback, Dictionary } from '../zorigami_types';
-// import socket from 'shared/provide_socket';
 
+/*
+	this is a class that should be used as a singleton
+	to provide stored api configurations for any function
+	in the context (main thread or worker thread)
+*/
 export class WorkerResponseCallbackStore {
-	/*
-		this is a class that should be used as a singleton
-		to provide stored api configurations for any function
-		in the context (main thread or worker thread)
-	*/
 	/* private properties must come before constructor */
 	private response_callbacks: Dictionary<ResponseCallback>;
 
@@ -27,6 +26,12 @@ export class WorkerResponseCallbackStore {
 
 	public removeResponseCallback = (callback_guid: UUID) => {
 		delete this.response_callbacks[callback_guid];
+	}
+	/**
+	 * listResponseCallbacks
+	 */
+	public listResponseCallbacks() {
+		return this.response_callbacks;
 	}
 }
 

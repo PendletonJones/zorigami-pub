@@ -45,7 +45,7 @@ export default async function expose_main_to_workers (workers: Array<IWorkerSet>
         const {worker_name} = new_worker_set;
         const main_to_worker_channel: MessageChannel = new MessageChannel();
         const expose_result = await expose_main_api_to_worker(
-            {api_config: [EXPOSE_WORKER_API, RESPONSE_MESSAGE, ...api_config_provider.listApiConfig()]},
+            {api_config: [EXPOSE_WORKER_API, RESPONSE_MESSAGE, ...api_config_provider.listApiConfigMethods()]},
             worker_name,
             worker,
             /* add a port here for use in the worker. */

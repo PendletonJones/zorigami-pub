@@ -1,8 +1,21 @@
-import * as socketIo from 'socket.io-client';
+// import * as socketIo from 'socket.io-client';
 import { IMessage } from '../zorigami_types';
 
+/* this is a mock socket.io?? */
+const socketIO = (host: string, configuration: {path: string, reconnection: boolean}) => {
+    return {
+        on: (event: string, callback: (data: IMessage) => void) => {
+            console.log(event);
+            callback({from: 'mock implementation'});
+        },
+        emit: (type: string, message: any): void => {
+            console.log(type, message);
+        }
+    };
+};
+
 const PORT = '3000';
-const socket = socketIo(`http://localhost:${PORT}`, {
+const socket = socketIO(`http://localhost:${PORT}`, {
     path: '/socket-server',
     reconnection: false,
     // reconnectionDelay: 500,

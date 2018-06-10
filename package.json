@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@types/socket.io-client": "^1.4.32",
+    "jsdom-worker": "^0.1.0",
     "socket.io-client": "^2.1.1"
   },
   "devDependencies": {
@@ -33,10 +34,13 @@
     "tslint": "^5.10.0",
     "tslint-react": "^3.6.0",
     "tspath": "^1.2.10",
+    "typedoc": "^0.11.1",
     "typescript": "^2.8.3"
   },
   "jest": {
-    "roots": ["<rootDir>/src"],
+    "roots": [
+      "<rootDir>/src"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

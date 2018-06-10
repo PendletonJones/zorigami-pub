@@ -24,7 +24,7 @@ export default async function worker_expose_own_api_to_sibling_worker(
         console.warn('isCustomPort worker_expose_own_api_to_sibling_worker', response_port);
         response_port.postMessage({
             type: EXPOSE_WORKER_API,
-            api_config: [...worker_api_provider.listApiConfig(), ...own_api_config],
+            api_config: [...worker_api_provider.listApiConfigMethods(), ...own_api_config],
         });
     }else{
         console.log(event, respond);

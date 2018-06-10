@@ -46,3 +46,6 @@ export function isCustomPort(potential_port: Maybe<ICustomWorkerPort>): potentia
 export function isPromisedPostMessage(potential_func: Maybe<PromisedPostMessage>): potential_func is PromisedPostMessage {
 	return potential_func !== undefined;
 }
+export function isWorker(worker: Maybe<Worker>): worker is Worker {
+    return worker !== undefined;
+}

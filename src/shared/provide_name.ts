@@ -1,6 +1,6 @@
 
 export class WorkerNameProvider {
-	/* 
+	/*
 		this is a class that should be used as a singleton
 		to provide stored api configurations for any function
 		in the context (main thread or worker thread)
