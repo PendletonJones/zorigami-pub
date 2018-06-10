@@ -7,7 +7,7 @@ import {
     isCustomPort,
     Dictionary,
     isWorker
-} from '../zorigami_types';
+} from '../../zorigami_types';
 
 export class WorkerPortInterfaceProvider {
     private worker_port_interfaces: Dictionary<ICustomWorkerPort>;

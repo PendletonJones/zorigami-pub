@@ -1,5 +1,5 @@
 import { TRIGGER_EXPOSE_WORKER_API } from '../../worker_constants';
-import worker_instance_provider from '../../main_thread_api/provide_worker_instance';
+import worker_instance_provider from '../../main_thread_api/providers/provide_worker_instance';
 import { IWorkerSet, isPromisedPostMessage } from '../../zorigami_types';
 
 export const tell_workers_to_exchange_api = async (

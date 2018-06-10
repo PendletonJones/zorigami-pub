@@ -1,4 +1,4 @@
-
+import create_worker_interface from '../../main_thread_api/create_worker_interface_main';
 import {
     PromisedPostMessage,
     Maybe,
@@ -7,7 +7,7 @@ import {
     isCustomPort,
     Dictionary,
     isWorker
-} from '../zorigami_types';
+} from '../../zorigami_types';
 
 export class WorkerInterfaceProvider {
     private worker_interfaces: Dictionary<ICustomWorkerPort>;
@@ -15,6 +15,7 @@ export class WorkerInterfaceProvider {
     constructor(){
         this.worker_interfaces = {};
     }
+
     public storeWorkerInterface = (worker_name: string, worker_instance: Worker): undefined => {
         const worker_interface: ICustomWorkerPort = create_worker_interface(worker_name, worker_instance);
         this.worker_interfaces[worker_name] = worker_interface;

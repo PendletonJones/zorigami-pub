@@ -1,4 +1,4 @@
-import worker_instance_provider from '../../main_thread_api/provide_worker_instance';
+import worker_instance_provider from '../../main_thread_api/providers/provide_worker_instance';
 import { dispatch_message_from_worker } from '../../main_thread_api/dispatch_message_from_worker';
 import {
 	IWorkerSet,

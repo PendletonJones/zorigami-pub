@@ -1,5 +1,5 @@
 import { RESPONSE_MESSAGE, EXPOSE_WORKER_API } from '../worker_constants';
-import provide_worker_instance from '../main_thread_api/provide_worker_instance';
+import provide_worker_instance from '../main_thread_api/providers/provide_worker_instance';
 import provide_response_callbacks from '../shared/provide_response_callbacks';
 import { ResponseFunction, DispatchHandler, ApiConfiguration } from '../zorigami_types';
 

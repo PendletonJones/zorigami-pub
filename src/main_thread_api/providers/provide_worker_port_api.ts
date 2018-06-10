@@ -1,4 +1,4 @@
-
+import worker_name_provider from '../../shared/provide_name';
 import {
     PromisedPostMessage,
     Maybe,
@@ -7,15 +7,17 @@ import {
     isCustomPort,
     Dictionary,
     isWorker
-} from '../zorigami_types';
+} from '../../zorigami_types';
 
 export class WorkerPortAPIPRovider {
+
     private worker_port_apis: Dictionary<Dictionary<PromisedPostMessage>>;
 
     constructor() {
         this.worker_port_apis = {};
 
     }
+
     public storeWorkerPortAPI = (worker_name: string, worker_api_config: Array<string>) => {
         /* need to convert to non-immutable javascript */
         const new_worker_port_api = worker_api_config.reduce((acc: Dictionary<PromisedPostMessage>, action_type: string) => {
@@ -26,6 +28,7 @@ export class WorkerPortAPIPRovider {
         this.worker_port_apis[worker_name] = new_worker_port_api;
         return;
     }
+
     public getWorkerPortAPI = (worker_name: string, action_name: string) => {
         /* returns a function that can be used to make an API call */
         // return this.worker_port_apis.getIn([worker_name, action_name]);
@@ -42,7 +45,6 @@ export class WorkerPortAPIPRovider {
                     ...message,
                 }, transferables);
             } else {
-                console.warn('this.worker_port_interfaces', this.worker_port_interfaces);
                 throw new Error(`makePortApiCall Inside ${worker_name_provider.getWorkerName()}, Custom Port Not found for ${action_type}, ${worker_name}`);
             }
         }

@@ -1,3 +1,4 @@
+import worker_name_provider from '../../shared/provide_name';
 
 import {
     PromisedPostMessage,
@@ -7,7 +8,7 @@ import {
     isCustomPort,
     Dictionary,
     isWorker
-} from '../zorigami_types';
+} from '../../zorigami_types';
 
 export class ProvideWorkerAPI {
     private worker_apis: Dictionary<Dictionary<PromisedPostMessage>>;
@@ -31,7 +32,7 @@ export class ProvideWorkerAPI {
     public getWorkerApi = (worker_name: string, action_name: string): Maybe<PromisedPostMessage> => {
         return this.worker_apis[worker_name][action_name];
     }
-    
+
     private makeWorkerApiCall = (worker_name: string, action_type: string): PromisedPostMessage => {
         const return_func: PromisedPostMessage = (message: any, transferables?: Array<Transferable>) => {
             /* grab the worker port, or the worker itself and post a message to it */
@@ -42,7 +43,6 @@ export class ProvideWorkerAPI {
                     ...message,
                 }, transferables);
             } else {
-                console.warn('this.worker_interfaces', this.worker_interfaces);
                 throw new Error(`getWorkerApi makePortApiCall Inside ${worker_name_provider.getWorkerName()}, Worker Not found for ${action_type}, ${worker_name}`);
             }
         }

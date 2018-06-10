@@ -1,6 +1,6 @@
 import uuid from '../../utility/uuid';
 import provide_response_callbacks from '../../shared/provide_response_callbacks';
-import provide_worker_instance from '../../main_thread_api/provide_worker_instance';
+import provide_worker_instance from '../../main_thread_api/providers/provide_worker_instance';
 import { dispatch_message_from_worker } from '../../main_thread_api/dispatch_message_from_worker';
 import api_config_provider from '../../shared/provide_api_config';
 import {
